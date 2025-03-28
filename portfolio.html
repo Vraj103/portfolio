@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vraj Pandya - Data Science Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: #ff6b6b;
+        }
+
+        .landing {
+            height: 100vh;
+            background: linear-gradient(135deg, #ff4d4d, #ff6b6b, #ff9999);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .landing-content {
+            max-width: 700px;
+            padding: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+        }
+
+        .landing-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .landing-content p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #ff6b6b;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .page {
+            min-height: 100vh;
+            padding: 80px 50px;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            background-size: 400% 400%;
+            animation: subtleGradient 15s ease infinite;
+        }
+
+        @keyframes subtleGradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .page h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .profile-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .skills-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .skill-card, .project-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover, .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #ff6b6b;
+        }
+
+        .contact-info i {
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff5252;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .tech-used {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .github-link {
+            text-decoration: none;
+            color: #ff6b6b;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .github-link:hover {
+            color: #ff5252;
+        }
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 60%;
+        text-align: center;
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .download-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #ff6b6b;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+    }
+
+    .download-btn:hover {
+        background-color: #ff5252;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Vraj Pandya</a>
+        <div class="navbar-links">
+            <a href="#landing">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Landing Page -->
+    <section id="landing" class="landing">
+        <div class="landing-content">
+            <h1>Data Science & Analytics Portfolio</h1>
+            <p>Master of Science in Computer Science | Data Analyst | Machine Learning Researcher</p>
+            <a href="#about" class="cta-button">Explore My Work</a>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <div class="instagram-gallery">
+                <!-- Replace 'POST_ID' with your actual Instagram post ID -->
+                <iframe src="https://www.instagram.com/p/DHHBWfpuz6p/embed" width="510" height="825" frameborder="50"></iframe>
+            </div>
+            <script>
+                window.addEventListener('load', function () {
+                    var iframe = document.getElementById('instagram-embed');
+                    var iframeContent = iframe.contentWindow || iframe.contentDocument;
+            
+                    // Set the height of the iframe based on the content of the Instagram post
+                    iframe.onload = function () {
+                        var iframeHeight = iframeContent.document.body.scrollHeight;
+                        iframe.style.height = iframeHeight + 'px';
+                    };
+                });
+            </script>
+            
+            <style>
+                .instagram-gallery {
+                    width: 100%;
+                    max-width: 100%; /* You can control the max-width for responsiveness */
+                }
+            
+                #instagram-embed {
+                    width: 100%;
+                    border: none;
+                }
+            </style>
+            <div>
+                <p>I'm a passionate data analyst and researcher with expertise in machine learning, data analysis, and AI-driven solutions. A recent grad of Master of Science in Computer Science at Wilfrid Laurier University with a stellar GPA of 3.76/4.0.</p>
+                <p>With experience across diverse domains including ecommerce, satellite research, and geospatial mapping, I specialize in transforming complex data into actionable insights.</p>
+                <br>
+                <p>PS: Instead of my picture, I have uploaded a post from my instagram, where I click and upload photos. Check it out and have fun! :)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Page -->
+    <section id="skills" class="page">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Languages & Tools</h3>
+                <p>Python, R, JAVA, HTML, CSS, SQL</p>
+                <p>Microsoft Excel, Google Sheets, Google Analytics, SAS, SAP, Hubspot, FIrebase</p>
+            </div>
+            <div class="skill-card">
+                <h3>Data visualization, Reporting and Version Control</h3>
+                <p>Power BI, Tableau, Looker, Streamlit, Matplotlib, DAX, PowerPoint</p>
+                <p>Github, Visio, JIRA, Lucidchart</p>
+            </div>
+            
+            <div class="skill-card">
+                <h3>Statistics</h3>
+                <p>A/B Tests, Regression analysis, Ad-hoc analysis, Causal inferencing, Customer Segmentation </p>
+            </div>
+
+            <div class="skill-card">
+                <h3>Machine Learning & AI</h3>
+                <p>TensorFlow, PyTorch, Keras, SKLearn, Pandas, Numpy, XGBoost, SciPy</p>
+                <p>Natural language processing, Computer Vision, Supervised, Unsupervised and Reinforcement learning</p>
+            </div>
+            
+            
+            <div class="skill-card">
+                <h3>Big Data and Cloud</h3>
+                <p>PySpark, Docker, Kubernetes, Airflow, Databricks</p>
+                <p>AWS, GCP(BigQuery), Azure(MS-Access)</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Page -->
+    <section id="projects" class="page">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="Hr.jpeg" alt="Revenue actuals for Hotels data">
+                <h3>Revenue actuals for Hotels and Rooms</h3>
+                <p>Created interactive PowerBI dashboards for hotel and room data, improving data visualization and decision-making efficiency.</p>
+                <div class="project-footer">
+                    <div class="tech-used">Power BI, DAX, SQL, MS-Excel</div>
+                    <a href="https://github.com/Vraj103/Hotels-and-Rooms-PowerBI-" class="github-link" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="MBA.jpeg" alt="Market Basket Analysis">
+                <h3>Market Basket Analysis on Instacart's data</h3>
+                <p>Analyzed 3M+ Instacart transactions to uncover cross-selling opportunities, improving potential revenue.</p>
+                <div class="project-footer">
+                    <div class="tech-used">Python, SQL, ML</div>
+                    <a href="https://github.com/your-link" class="github-link" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="SPA.png" alt="Sales and Pricing Analysis">
+                <h3>Sales and Pricing Analysis</h3>
+                <p>Created data-driven reports analyzing product performance and customer segmentation using advanced SQL techniques.</p>
+                <div class="project-footer">
+                    <div class="tech-used">SQL, Power BI, Python</div>
+                    <a href="https://github.com/your-link" class="github-link" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="vector.png" alt="Road Extraction ML">
+                <h3>Road Network Extraction from Satellite imagery</h3>
+                <p>Developed deep learning models achieving 95-96% accuracy in road extraction, published at IEEE-ICMI 2025.</p>
+                <div class="project-footer">
+                    <div class="tech-used">TensorFlow, Keras, Python, ArcGIS, ArcPy</div>
+                    <a href="https://github.com/your-link" class="github-link" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="LLM.png" alt="Chat with PDF Files">
+                <h3>Chat with PDF Files (In progress)</h3>
+                <p>Implementing Retrieval-Augmented Generation (RAG) with semantic search and making an end-to-end system to interact with PDF documents efficiently.</p>
+                <a href="https://github.com/Vraj103/Chat-with-PDF-Files" target="_blank" class="cta-button">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <h2>Contact Me</h2>
+        <div class="contact-section">
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/vraj103" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://www.github.com/Vraj103" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="mailto:vraj.pndya@gmail.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+                <a href="tel:+16043892372">
+                    <i class="fas fa-phone"></i> Phone
+                </a>
+                <!-- Resume Button in Contact Section -->
+                <a href="#" onclick="openResumeModal()">
+                    <i class="fas fa-file-pdf"></i> Resume
+                </a>
+                <!-- Resume Modal -->
+                <div id="resumeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeResumeModal()">&times;</span>
+                        <h2>My Resume</h2>
+                        <iframe src="your_resume.pdf" width="100%" height="500px"></iframe>
+                        <a href="your_resume.pdf" download class="download-btn">Download Resume</a>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                    document.getElementById("resumeModal").style.display = "none";
+                    });
+                    function openResumeModal() {
+                        document.getElementById("resumeModal").style.display = "flex";
+                    }
+                
+                    function closeResumeModal() {
+                        document.getElementById("resumeModal").style.display = "none";
+                    }
+                </script>
+            </div>
+            <form action="https://formspree.io/f/xqapdakw" method="POST" class="contact-form">
+                <input type="text" placeholder="Your Name" name = "text" required>
+                <input type="email" placeholder="Your Email" name = "email" required>
+                <textarea placeholder="Your Message" rows="5" required name = "Your message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
