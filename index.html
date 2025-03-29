@@ -58,14 +58,24 @@
 
         .landing {
             height: 100vh;
-            background: linear-gradient(135deg, #ff4d4d, #ff6b6b, #ff9999);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding-top: 60px;
+            background: linear-gradient(to right, 
+                #264653 0%, 
+                #264653 20%, 
+                #2a9d8f 20%, 
+                #2a9d8f 40%, 
+                #e9c46a 40%, 
+                #e9c46a 60%, 
+                #f4a261 60%, 
+                #f4a261 80%, 
+                #e76f51 80%, 
+                #e76f51 100%
+            );
+            background-size: 100% 100%;
         }
 
         @keyframes gradientBG {
@@ -92,7 +102,7 @@
 
         .landing-content p {
             font-size: 1.2rem;
-            color: white;
+            color: black;
             margin-bottom: 30px;
             font-weight: 300;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
@@ -184,6 +194,7 @@
 
         .contact-info {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
             margin-bottom: 30px;
@@ -243,7 +254,8 @@
         @media (max-width: 768px) {
             .about-grid,
             .skills-grid,
-            .projects-grid {
+            .projects-grid,
+            .contact-section {
                 grid-template-columns: 1fr;
             }
         }
@@ -333,7 +345,7 @@
     <section id="landing" class="landing">
         <div class="landing-content">
             <h1>Data Science & Analytics Portfolio</h1>
-            <p>Master of Science in Computer Science | Data Analyst | Machine Learning Researcher</p>
+            <p>Master of Science in Computer Science | Data Analyst | Data Scientist Machine Learning Researcher</p>
             <a href="#about" class="cta-button">Explore My Work</a>
         </div>
     </section>
@@ -344,7 +356,7 @@
         <div class="about-grid">
             <div class="instagram-gallery">
                 <!-- Replace 'POST_ID' with your actual Instagram post ID -->
-                <iframe src="https://www.instagram.com/p/DHHBWfpuz6p/embed" width="510" height="825" frameborder="50"></iframe>
+                <iframe src="https://www.instagram.com/p/DHHBWfpuz6p/embed" width=vw height=575 frameborder="50"></iframe>
             </div>
             <script>
                 window.addEventListener('load', function () {
@@ -362,7 +374,7 @@
             <style>
                 .instagram-gallery {
                     width: 100%;
-                    max-width: 100%; /* You can control the max-width for responsiveness */
+                    max-width: vw; /* You can control the max-width for responsiveness */
                 }
             
                 #instagram-embed {
